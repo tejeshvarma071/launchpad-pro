@@ -43,7 +43,7 @@ export const FeaturesPreview = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-card/30">
+    <section ref={ref} className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,10 @@ export const FeaturesPreview = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            Features
+          </span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-balance">
             Everything you need to{" "}
             <span className="gradient-text">launch & scale</span>
           </h2>
@@ -67,15 +70,15 @@ export const FeaturesPreview = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group p-6 rounded-xl glass hover:glow-sm transition-all duration-300"
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-emerald-400/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-emerald-500/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:from-primary/20 group-hover:to-emerald-500/20 transition-all">
                 <feature.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-2 text-foreground">
+              <h3 className="text-lg font-display font-semibold mb-2 text-foreground">
                 {feature.title}
               </h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -87,7 +90,7 @@ export const FeaturesPreview = () => {
           className="text-center mt-12"
         >
           <Link to="/features">
-            <Button variant="outline" size="lg" className="border-border hover:bg-secondary">
+            <Button variant="outline" size="lg" className="border-border hover:bg-secondary hover:border-primary/50">
               View All Features
             </Button>
           </Link>

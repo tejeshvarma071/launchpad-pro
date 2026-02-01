@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { WaitlistForm } from "./WaitlistForm";
-import { Sparkles, Zap, Shield } from "lucide-react";
+import { Sparkles, Zap, Shield, ArrowDown } from "lucide-react";
 
 const stats = [
   { value: "10K+", label: "Users" },
@@ -13,8 +13,8 @@ export const HeroSection = () => {
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-emerald-400/20 rounded-full blur-3xl animate-pulse-glow delay-1000" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_70%)]" />
       </div>
 
@@ -25,7 +25,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8"
           >
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm text-muted-foreground">Introducing LaunchPad v2.0</span>
@@ -36,7 +36,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight mb-6 text-balance"
           >
             Launch your startup{" "}
             <span className="gradient-text">faster than ever</span>
@@ -83,7 +83,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-4 mt-12"
+            className="flex flex-wrap justify-center gap-3 mt-12"
           >
             {[
               { icon: Zap, label: "Lightning Fast" },
@@ -92,12 +92,28 @@ export const HeroSection = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors"
               >
                 <item.icon className="w-4 h-4 text-primary" />
                 <span className="text-sm text-muted-foreground">{item.label}</span>
               </div>
             ))}
+          </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 2 }}
+              className="text-muted-foreground"
+            >
+              <ArrowDown className="w-5 h-5" />
+            </motion.div>
           </motion.div>
         </div>
       </div>
