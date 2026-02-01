@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Rocket, Twitter, Github, Linkedin } from "lucide-react";
+import { Rocket, Twitter, Github, Linkedin, Mail } from "lucide-react";
 
 const footerLinks = {
   Product: [
@@ -29,35 +29,35 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border bg-card/30">
+    <footer className="border-t border-border bg-card/50">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-emerald-400 flex items-center justify-center">
+            <Link to="/" className="flex items-center gap-2 mb-4 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-emerald-500 flex items-center justify-center shadow-lg group-hover:shadow-primary/25 transition-shadow">
                 <Rocket className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="text-xl font-display font-bold text-foreground">LaunchPad</span>
             </Link>
-            <p className="text-muted-foreground text-sm mb-6 max-w-xs">
+            <p className="text-muted-foreground text-sm mb-6 max-w-xs leading-relaxed">
               The modern platform for launching your startup. Build, iterate, and scale with confidence.
             </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
+            <div className="flex items-center gap-3">
+              {[Twitter, Github, Linkedin, Mail].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-display font-semibold text-foreground mb-4">{category}</h4>
+              <h4 className="font-display font-semibold text-foreground mb-4 text-sm">{category}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
