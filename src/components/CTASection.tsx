@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { WaitlistForm } from "./WaitlistForm";
-import { Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export const CTASection = () => {
   const ref = useRef(null);
@@ -24,17 +25,21 @@ export const CTASection = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            Limited spots available
+            Join the community
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-balance">
-            Ready to <span className="gradient-text">launch</span>?
+            Ready to share your <span className="gradient-text">startup idea</span>?
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
-            Join the waitlist today and be among the first to experience the future of startup development.
+            Sign up today, share your idea, and get feedback from founders worldwide.
           </p>
-          <div className="flex justify-center">
-            <WaitlistForm showName />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/auth">
+              <Button size="lg" className="h-12 px-8 bg-gradient-to-r from-primary to-emerald-400 text-primary-foreground hover:opacity-90">
+                Get Started
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>

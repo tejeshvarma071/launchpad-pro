@@ -6,20 +6,20 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     name: "Sarah Chen",
-    role: "CEO, TechFlow",
-    content: "LaunchPad transformed how we ship products. We went from idea to launch in just 2 weeks.",
+    role: "Founder, TechFlow",
+    content: "The community feedback on my startup idea was invaluable. Other founders helped me refine my pitch and find my blind spots.",
     avatar: "SC",
   },
   {
     name: "Marcus Rodriguez",
     role: "Founder, NexGen",
-    content: "The analytics alone are worth it. We finally understand our users and can iterate fast.",
+    content: "Getting comments from experienced entrepreneurs transformed my business model. The collaborative environment here is unmatched.",
     avatar: "MR",
   },
   {
     name: "Emily Watson",
-    role: "CTO, Streamline",
-    content: "Security and scalability without the complexity. This is what we've been waiting for.",
+    role: "Founder, Streamline",
+    content: "I posted my idea and within hours had actionable feedback. The premium access to see all ideas was worth every penny.",
     avatar: "EW",
   },
 ];
@@ -41,10 +41,10 @@ export const Testimonials = () => {
             Testimonials
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            Loved by <span className="gradient-text">founders worldwide</span>
+            <span className="gradient-text">Comment, collaborate, improve</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of startups who've accelerated their growth with LaunchPad.
+            Share your startup idea and get valuable feedback from the community. Comment on others to help them grow.
           </p>
         </motion.div>
 
