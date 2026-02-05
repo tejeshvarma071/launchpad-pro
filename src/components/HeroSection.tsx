@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { WaitlistForm } from "./WaitlistForm";
-import { Sparkles, Zap, Shield, ArrowDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Zap, Shield, ArrowDown, MessageSquare } from "lucide-react";
 
 const stats = [
   { value: "10K+", label: "Users" },
@@ -58,9 +59,18 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="flex justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <WaitlistForm />
+            <Link to="/auth">
+              <Button size="lg" className="h-12 px-8 bg-gradient-to-r from-primary to-emerald-400 text-primary-foreground hover:opacity-90">
+                Get Started
+              </Button>
+            </Link>
+            <Link to="/auth">
+              <Button size="lg" variant="outline" className="h-12 px-8">
+                Sign In
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Trust Indicators */}
@@ -86,9 +96,9 @@ export const HeroSection = () => {
             className="flex flex-wrap justify-center gap-3 mt-12"
           >
             {[
-              { icon: Zap, label: "Lightning Fast" },
-              { icon: Shield, label: "Enterprise Security" },
-              { icon: Sparkles, label: "AI-Powered" },
+              { icon: MessageSquare, label: "Community Feedback" },
+              { icon: Shield, label: "Secure Platform" },
+              { icon: Sparkles, label: "Premium Insights" },
             ].map((item, index) => (
               <div
                 key={index}
