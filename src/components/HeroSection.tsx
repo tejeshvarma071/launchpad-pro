@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Zap, Shield, ArrowDown, MessageSquare } from "lucide-react";
+import { Sparkles, Shield, ArrowDown, MessageSquare, ArrowRight } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const stats = [
-  { value: "10K+", label: "Users" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "50M+", label: "Requests" },
+  { value: "500+", label: "Ideas Shared" },
+  { value: "2K+", label: "Comments" },
+  { value: "1K+", label: "Founders" },
 ];
 
 export const HeroSection = () => {
+  const { user } = useAuth();
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Effects */}
@@ -61,16 +64,34 @@ export const HeroSection = () => {
             transition={{ delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <Link to="/auth">
-              <Button size="lg" className="h-12 px-8 bg-gradient-to-r from-primary to-emerald-400 text-primary-foreground hover:opacity-90">
-                Get Started
-              </Button>
-            </Link>
-            <Link to="/auth">
-              <Button size="lg" variant="outline" className="h-12 px-8">
-                Sign In
-              </Button>
-            </Link>
+            {user ? (
+              <>
+                <Link to="/ideas">
+                  <Button size="lg" className="h-12 px-8 bg-gradient-to-r from-primary to-emerald-400 text-primary-foreground hover:opacity-90">
+                    View Startup Ideas
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <Link to="/submit">
+                  <Button size="lg" variant="outline" className="h-12 px-8">
+                    Share Your Idea
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button size="lg" className="h-12 px-8 bg-gradient-to-r from-primary to-emerald-400 text-primary-foreground hover:opacity-90">
+                    Get Started
+                  </Button>
+                </Link>
+                <Link to="/auth">
+                  <Button size="lg" variant="outline" className="h-12 px-8">
+                    Sign In
+                  </Button>
+                </Link>
+              </>
+            )}
           </motion.div>
 
           {/* Trust Indicators */}
