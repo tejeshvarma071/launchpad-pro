@@ -14,6 +14,106 @@ export type Database = {
   }
   public: {
     Tables: {
+      idea_comments: {
+        Row: {
+          author_name: string
+          content: string
+          created_at: string
+          id: string
+          idea_id: string
+          user_id: string
+        }
+        Insert: {
+          author_name: string
+          content: string
+          created_at?: string
+          id?: string
+          idea_id: string
+          user_id: string
+        }
+        Update: {
+          author_name?: string
+          content?: string
+          created_at?: string
+          id?: string
+          idea_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "idea_comments_idea_id_fkey"
+            columns: ["idea_id"]
+            isOneToOne: false
+            referencedRelation: "startup_ideas"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      idea_interests: {
+        Row: {
+          created_at: string
+          id: string
+          idea_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          idea_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          idea_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "idea_interests_idea_id_fkey"
+            columns: ["idea_id"]
+            isOneToOne: false
+            referencedRelation: "startup_ideas"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      startup_ideas: {
+        Row: {
+          author_name: string
+          created_at: string
+          description: string
+          id: string
+          industry: string
+          name: string
+          stage: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          author_name: string
+          created_at?: string
+          description: string
+          id?: string
+          industry: string
+          name: string
+          stage?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          author_name?: string
+          created_at?: string
+          description?: string
+          id?: string
+          industry?: string
+          name?: string
+          stage?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       waitlist: {
         Row: {
           created_at: string
